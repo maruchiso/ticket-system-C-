@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="ticket_system.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="datatables/css/datatables.min.css" rel="stylesheet" />  
+    <link href="fontawsome/css/all.css" rel="stylesheet" />
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+  
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <footer class="bg-secondary text-light py-3">
+            <div class="container text-center bg-secondary text-light py-3">
+                <p class="bg-secondary text-light py-3">Kontakt xxx@xxx.xx</p>
+                <p class="bg-secondary text-light py-3">W przypadku zapomnienia hasła proszę o kontakt na: XXX@xxx.xx</p>
+            </div>
+        </footer>
+
+    </form>
+</body>
+</html>

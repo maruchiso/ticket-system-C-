@@ -1,1 +1,2 @@
-# ticket-system-C-
+# ticket-system
+Ticket system written in Django
