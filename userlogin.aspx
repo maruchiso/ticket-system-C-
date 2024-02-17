@@ -11,13 +11,13 @@
         
           <div class="form-group">
             <label for="login">Login:</label>
-            <input type="text" class="form-control" id="login" placeholder="Wpisz login">
+            <asp:TextBox ID="user_login" runat="server" CssClass="form-control" placeholder="Wpisz login"></asp:TextBox>
           </div>
           <div class="form-group">
             <label for="password">Hasło:</label>
-            <input type="password" class="form-control" id="password" placeholder="Wpisz hasło">
+            <asp:TextBox ID="user_password" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
           </div>
-          <asp:LinkButton class="btn btn-success btn-block btn-lg" runat="server" Text="Zaloguj" OnClick="Unnamed1_Click" />
+          <asp:LinkButton class="btn btn-success btn-block btn-lg" runat="server" Text="Zaloguj" OnClick="LogInCheck" />
         
       </div>
     </div>
