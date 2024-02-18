@@ -53,6 +53,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -2156,6 +2157,7 @@
     <Content Include="Web.config" />
     <Content Include="userlogin.aspx" />
     <Content Include="homepage.aspx" />
+    <Content Include="panel_user.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2179,6 +2181,13 @@
     </Compile>
     <Compile Include="homepage.aspx.designer.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="panel_user.aspx.cs">
+      <DependentUpon>panel_user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="panel_user.aspx.designer.cs">
+      <DependentUpon>panel_user.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

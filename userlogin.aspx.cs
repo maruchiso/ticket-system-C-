@@ -4,41 +4,80 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace ticket_system
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-        string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
+        string strcon = ConfigurationManager.ConnectionStrings["con_comp"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void LogInCheck(object sender, EventArgs e)
         {
-            //Response.Write("<script>alert('BRIAR');</script>");
-
             try
             {
-                /*SqlConnection con = new SqlConnection(strcon);
+                string login = user_login.Text;
+                string password = user_password.Text;
 
-                if (con.State == ConnectionState.Closed)
+                //connect with Database SMSS
+                using (SqlConnection con = new SqlConnection(strcon))
                 {
-                    con.Open();
-                }
-                SqlCommand cmd = new SqlCommand("", con);
-                */
-                string login_value = user_login.Text;
-                Response.Write("<script>alert(" + "HUJ" + ");</script>");
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    
+                    //Get everyone User from Table Users
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM USERS WHERE Login = @Login AND Password = @Password", con);
+                    cmd.Parameters.AddWithValue("@Login", login);
+                    cmd.Parameters.AddWithValue("@Password", password);
 
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    
+                    
+                    
+
+                    //Find out if user is in database, and check if User has Admin privelanges
+                    if (reader.HasRows)
+                    {
+                        /*
+                        string script = $"alert({reader[2]});";
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "AlertScript", script, true);
+                        */
+                        while (reader.Read())
+                        {
+                            bool isADM = reader.GetBoolean(reader.GetOrdinal("isAdmin"));
+                            if (!isADM)
+                            {
+                                Response.Redirect("panel_user.aspx");
+                            }
+                            else
+                            {
+                                Response.Redirect("panel_admin.aspx");
+                            }
+                        }
+                        reader.Close();
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Nie ma takiego usera');</script>");
+                    }
+
+                }
             }
-            catch(Exception ex) { 
-            
+
+            catch (Exception ex) 
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
-    }
+    } 
 }
