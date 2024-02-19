@@ -11,7 +11,7 @@ namespace ticket_system
 {
     public partial class WebForm4 : System.Web.UI.Page
     {
-        string strcon = ConfigurationManager.ConnectionStrings["con_comp"].ConnectionString;
+        string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -35,17 +35,25 @@ namespace ticket_system
                 {
                     con.Open();
                 }
-
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Zgloszenia_User", con))
+                if (Session["User"] != null)
                 {
-                    SqlDataReader reader = cmd.ExecuteReader();
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM Zgloszenia_User WHERE KtoZglosil = @Login", con))
+                    {
 
-                    Zgloszenia.DataSource = reader;
-                    Zgloszenia.DataBind();
+                        cmd.Parameters.AddWithValue("@Login", Session["User"].ToString());
+                        SqlDataReader reader = cmd.ExecuteReader();
 
-                    reader.Close();
+                        Zgloszenia.DataSource = reader;
+                        Zgloszenia.DataBind();
+
+                        reader.Close();
+                    }
                 }
             }
+        }
+        protected void Nowe_zgloszenie(object sender, EventArgs e)
+        {
+            Response.Redirect("Formularz_zgloszenia_user.aspx");
         }
     }
 }
