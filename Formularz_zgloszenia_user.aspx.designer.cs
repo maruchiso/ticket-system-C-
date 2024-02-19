@@ -11,25 +11,34 @@ namespace ticket_system
 {
 
 
-    public partial class WebForm4
+    public partial class WebForm5
     {
 
         /// <summary>
-        /// Zgloszenia control.
+        /// ID_zgloszenia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Zgloszenia;
+        protected global::System.Web.UI.WebControls.Label ID_zgloszenia;
 
         /// <summary>
-        /// nowe_zgloszenie control.
+        /// Tytul_zgloszenia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton nowe_zgloszenie;
+        protected global::System.Web.UI.WebControls.TextBox Tytul_zgloszenia;
+
+        /// <summary>
+        /// Priorytet_zgloszenia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Priorytet_zgloszenia;
     }
 }

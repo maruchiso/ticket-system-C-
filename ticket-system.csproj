@@ -2158,6 +2158,7 @@
     <Content Include="userlogin.aspx" />
     <Content Include="homepage.aspx" />
     <Content Include="panel_user.aspx" />
+    <Content Include="Formularz_zgloszenia_user.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2188,6 +2189,13 @@
     </Compile>
     <Compile Include="panel_user.aspx.designer.cs">
       <DependentUpon>panel_user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularz_zgloszenia_user.aspx.cs">
+      <DependentUpon>Formularz_zgloszenia_user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Formularz_zgloszenia_user.aspx.designer.cs">
+      <DependentUpon>Formularz_zgloszenia_user.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

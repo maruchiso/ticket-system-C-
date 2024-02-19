@@ -14,7 +14,7 @@ namespace ticket_system
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-        string strcon = ConfigurationManager.ConnectionStrings["con_comp"].ConnectionString;
+        string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -36,7 +36,7 @@ namespace ticket_system
                     }
                     
                     //Get everyone User from Table Users
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM USERS WHERE Login = @Login AND Password = @Password", con);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE Login = @Login AND Password = @Password", con);
                     cmd.Parameters.AddWithValue("@Login", login);
                     cmd.Parameters.AddWithValue("@Password", password);
 
@@ -54,6 +54,9 @@ namespace ticket_system
                         */
                         while (reader.Read())
                         {
+                            Session["User"] = reader.GetString(reader.GetOrdinal("Login"));
+                            
+
                             bool isADM = reader.GetBoolean(reader.GetOrdinal("isAdmin"));
                             if (!isADM)
                             {
