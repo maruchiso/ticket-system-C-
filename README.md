@@ -1,2 +1,2 @@
 # ticket-system
-Ticket system written in Django
+Ticket system to manage IT problems in company 
