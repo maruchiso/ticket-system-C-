@@ -40,7 +40,7 @@ namespace ticket_system
                         }
                         else
                         {
-                            Response.Write("<script>alert(Nie udało się!);</alert>");
+                            Response.Write("<script>alert(Nie udało się!);</script>");
                         }
                     }
                 }

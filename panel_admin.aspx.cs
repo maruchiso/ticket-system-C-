@@ -27,6 +27,12 @@ namespace ticket_system
             }
         }
 
+        protected void Reaguj_Click(object sender, EventArgs e) 
+        {
+            Button button = (Button)sender;
+            string idZgloszenia = button.CommandArgument;
+            Response.Redirect($"Formularz_zgloszenia_admin.aspx?id={idZgloszenia}");
+        }
         protected void LoadTickets()
         {
             using (SqlConnection con = new SqlConnection(strcon))

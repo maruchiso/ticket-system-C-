@@ -39,6 +39,12 @@
                                 <HeaderStyle CssClass="text-center" />
                                 <ItemStyle CssClass="text-center" />
                             </asp:BoundField>
+                            
+                            <asp:TemplateField HeaderText="Akcje">
+                                <ItemTemplate>
+                                    <asp:Button ID="reaguj" runat="server" Text="Reaguj" CommandName="Reaguj" CommandArgument='<%# Eval("ID") %>' CssClass="btn btn-primary text-center" OnClick="Reaguj_Click" /> 
+                                </ItemTemplate>
+                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </div>
